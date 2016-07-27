@@ -18,7 +18,7 @@ class Song < Music
   end
 
   def self.find_by_name(name)
-    self.all.each {|x| x if x.name != name}.pop
+    self.all.each {|x| return x if x.name == name}
   end
 
   def self.find_or_create_by_name(name)

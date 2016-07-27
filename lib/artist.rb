@@ -11,10 +11,8 @@ class Artist < Music
   end
 
   def genres
-    songs = self.songs
-    for song in songs
-      @genre << song.genre unless @genre.include? song.genre
-    end
+    @songs.each {|x| @genre << x.genre unless @genre.include? x.genre}
+    @genre
   end
 
 end
