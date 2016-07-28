@@ -1,7 +1,8 @@
-require 'concerns/findable.rb'
+require_relative 'concerns/findable.rb'
+
 class Artist < Music
 
-  include Concerns::Findable
+  extend Concerns::Findable
 
   def initialize(name)
     @name = name

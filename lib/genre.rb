@@ -1,4 +1,9 @@
+require_relative 'concerns/findable.rb'
+
 class Genre < Music
+
+	extend Concerns::Findable
+
   def initialize(name)
     @name = name
     @songs = []
