@@ -1,7 +1,10 @@
 class Song < Music
   def initialize(name, artist = "Unknown", genre = "Unset")
-  @name = name
-  
+    @name = name
+    self.artist = artist if artist != "Unknown"
+    self.genre = genre if genre != "Unset"
+  end
+
   def artist= artist
     @artist = artist
     @artist.add_song(self)
@@ -12,30 +15,11 @@ class Song < Music
     @genre.add_song(self)
   end
 
-  self.artist = artist if artist != "Unknown"
-  self.genre = genre if genre != "Unset"
-
-  end
-
   def self.find_by_name(name)
-    self.all.each {|x| return x if x.name == name}
+    all.each {|x| return x if x.name == name}
   end
 
   def self.find_or_create_by_name(name)
-    self.all.each do |x| 
-      if x.name == name
-        x
-      else
-        self.new(name)
-      end
-    end
-   # songs = self.all
-    #for song in songs
-     # if song.name == name
-      #  song
-      #else
-       # self.new(name)
-      #end
-    #end
+    find_by_name(name) || create(name)
   end
 end

@@ -1,6 +1,4 @@
 require_relative "../config/environment.rb"
-require_relative "../test2.rb"
-#require_relative "../lib/test3.rb"
 
 RSpec.configure do |config|
   config.order = :default

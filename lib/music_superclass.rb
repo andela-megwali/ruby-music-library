@@ -1,22 +1,21 @@
 class Music
-	@@all = []
+  @@all = []
   attr_accessor :name, :artist, :genre, :songs
-	
+  
   def self.all
     @@all
   end
 
   def save
-  	@@all << self
+    @@all << self
   end
 
   def self.destroy_all
-  	@@all = []
+    @@all = []
   end
 
   def self.create(name)
-  	self.new(name).save
+    self.new(name).save
     @@all[-1]
   end
-
 end
