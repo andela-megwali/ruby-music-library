@@ -8,6 +8,7 @@ class Music
 
   def save
     @@all << self
+    self
   end
 
   def self.destroy_all
@@ -16,6 +17,6 @@ class Music
 
   def self.create(name)
     self.new(name).save
-    @@all[-1]
+#    @@all[-1]
   end
 end

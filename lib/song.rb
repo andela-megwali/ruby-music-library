@@ -4,10 +4,10 @@ class Song < Music
 
   extend Concerns::Findable
 
-  def initialize(name, artist = "Unknown", genre = "Unset")
+  def initialize(name, artist = nil, genre = nil)
     @name = name
-    self.artist = artist if artist != "Unknown"
-    self.genre = genre if genre != "Unset"
+    self.artist = artist if artist
+    self.genre = genre if genre 
   end
 
   def artist= artist
@@ -20,11 +20,15 @@ class Song < Music
     @genre.add_song(self)
   end
 
-  # def self.find_by_name(name)
-  #   all.each {|x| return x if x.name == name}
+  # def self.new_from_filename(filename)
+  #   artist_name, song_name, genre_name = filename.gsub(".mp3", "").split(" - ")
+
+  #   artist = Artist.find_or_create_by_name(artist_name)
+  #   genre = Genre.find_or_create_by_name(genre_name)
+  #   Song.new(song_name, artist, genre)
   # end
 
-  # def self.find_or_create_by_name(name)
-  #   find_by_name(name) || create(name)
+  # def self.create_from_filename(filename)
+  #   new_from_filename(filename).save
   # end
 end
