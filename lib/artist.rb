@@ -1,27 +1,27 @@
 require_relative 'concerns/findable.rb'
 
-class Artist < Music
+class Artist #< Music
 
     @@all = []
   attr_accessor :name, :artist, :genre, :songs
   
-#   def self.all
-#     @@all
-#   end
+  def self.all
+    @@all
+  end
 
-#   def save
-#     @@all << self
-#     self
-#   end
+  def save
+    @@all << self
+    self
+  end
 
-#   def self.destroy_all
-#     @@all = []
-#   end
+  def self.destroy_all
+    @@all = []
+  end
 
-#   def self.create(name)
-#     self.new(name).save
-# #    @@all[-1]
-#   end
+  def self.create(name)
+    self.new(name).save
+#    @@all[-1]
+  end
 
   extend Concerns::Findable
 
