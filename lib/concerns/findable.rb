@@ -9,12 +9,10 @@ module Concerns::Findable
   end
 
   def new_from_filename(filename)
-    artist_name, song_name, genre_name = filename.gsub(".mp3", "").split(" - ")
-
-    artist = Artist.find_or_create_by_name(artist_name)
-    genre = Genre.find_or_create_by_name(genre_name)
-    Song.new(song_name, artist, genre)
-    #binding.pry
+    music_name_property = filename.gsub(".mp3", "").split(" - ")
+    artist = Artist.find_or_create_by_name(music_name_property[0])
+    genre = Genre.find_or_create_by_name(music_name_property[2])
+    Song.new(music_name_property[1], artist, genre)
   end
 
   def create_from_filename(filename)
