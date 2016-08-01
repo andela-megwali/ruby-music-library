@@ -5,7 +5,7 @@ module Concerns::Findable
   end
 
   def find_or_create_by_name(name)
-  	find_by_name(name) || create(name)
+    find_by_name(name) || create(name)
   end
 
   def new_from_filename(filename)
@@ -18,5 +18,4 @@ module Concerns::Findable
   def create_from_filename(filename)
     new_from_filename(filename).save
   end
-
 end
