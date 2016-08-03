@@ -36,16 +36,11 @@ class MusicLibraryController
       when "exit"
         return "exiting"
       else
-        # puts "#{x} is an unrecognised input. Try again with a valid command"
-        # welcome_message
         wrong_input(x)
     end
     new_command
   end
 
-  # def exit_now
-  # 	return "exit"
-  # end
 end
 
 # b = x.gsub("list ", "")
@@ -55,7 +50,7 @@ def list_songs
 end
 
 def list_songs_message(song, index)
-	puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}".cyan
+  puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}".cyan
 end
 
 def list_artists
@@ -71,32 +66,35 @@ def list_genres
 end
 
 def play_song
-	list_songs
-	puts "Type a song number to play the related song:".yellow
-  play = Song.all[gets.chomp.to_i-1]
+  list_songs
+  puts "Type a song number to play the related song:".yellow
+  x = gets.chomp.to_i
+  x = 0 if x >= Song.all.length || x == nil
+  now_playing(x)
+end
+
+def now_playing(x) 
+	play = Song.all[x-1]
   puts ""
   puts "Playing #{play.artist.name} - #{play.name} - #{play.genre.name}".green
+  puts "Default song playing...".red if play == Song.all[-1]
 end
 
 def list_artist
-	list_artists
-	puts "Type the name of any listed artist to list all their songs".yellow
+  list_artists
+  puts "Type the name of any listed artist to list all their songs".yellow
   list_artist_songs(x= gets.chomp.gsub(/[A-Za-z']+/,&:capitalize))
 end
 
 def list_genre
-	list_genres
-	puts "Type the name of any listed genre to list songs in that genre".yellow
-	list_genre_songs(x= gets.chomp.downcase)
-end
-
-def wrong_input(x)
-	puts "#{x} is an unrecognised input. Try again with a valid command".red
-	library_action_menu
+  list_genres
+  puts "Type the name of any listed genre to list songs in that genre".yellow
+  list_genre_songs(x= gets.chomp.downcase)
 end
 
 def list_artist_songs(x)
   chosen_artist = Artist.all.detect {|artist| artist.name == x}
+  invalid_selection if chosen_artist == nil
   chosen_artist.songs.each do |song|
     puts "#{chosen_artist.name} - #{song.name} - #{song.genre.name}".cyan
   end
@@ -104,7 +102,8 @@ end
 
 def list_genre_songs(x)
   chosen_genre = Genre.all.detect {|genre| genre.name == x}
-	chosen_genre.songs.each do |song|
+  invalid_selection if chosen_genre == nil
+  chosen_genre.songs.each do |song|
     puts "#{song.artist.name} - #{song.name} - #{song.genre.name}".cyan
   end
 end

@@ -1,10 +1,11 @@
 require_relative 'concerns/findable.rb'
 
-class Genre #< Music
+class Genre
+  extend Concerns::Findable
 
-	  @@all = []
   attr_accessor :name, :artist, :genre, :songs
-  
+  @@all = []
+
   def self.all
     @@all
   end
@@ -20,10 +21,7 @@ class Genre #< Music
 
   def self.create(name)
     self.new(name).save
-#    @@all[-1]
   end
-
-	extend Concerns::Findable
 
   def initialize(name)
     @name = name
