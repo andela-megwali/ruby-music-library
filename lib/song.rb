@@ -6,6 +6,12 @@ class Song
   attr_accessor :name, :artist, :genre, :songs
   @@all = []
 
+  def initialize(name, artist = nil, genre = nil)
+    @name = name
+    self.artist = artist if artist
+    self.genre = genre if genre
+  end
+
   def self.all
     @@all
   end
@@ -21,12 +27,6 @@ class Song
 
   def self.create(name)
     self.new(name).save
-  end
-
-  def initialize(name, artist = nil, genre = nil)
-    @name = name
-    self.artist = artist if artist
-    self.genre = genre if genre
   end
 
   def artist= artist

@@ -6,6 +6,12 @@ class Genre
   attr_accessor :name, :artist, :genre, :songs
   @@all = []
 
+  def initialize(name)
+    @name = name
+    @songs = []
+    @artist = []
+  end
+
   def self.all
     @@all
   end
@@ -23,19 +29,13 @@ class Genre
     self.new(name).save
   end
 
-  def initialize(name)
-    @name = name
-    @songs = []
-    @artist = []
-  end
-
   def add_song(song)
     song.genre ||= self.name
-    @songs << song unless @songs.include? song
+    @songs << song if !(@songs.include? song)
   end
 
   def artists
-    @songs.each {|x| @artist << x.artist unless @artist.include? x.artist}
+    @songs.each {|x| @artist << x.artist if !(@artist.include? x.artist)}
     @artist
   end
 end
