@@ -60,52 +60,52 @@ You also need access to a steady internet connection.
    Follow the interactive prompts and will be well.
 
 
-'>>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
+  >>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
 
-Below is a list of commands to perform actions in the library:
-**********************************************************************
-->  list songs
+  Below is a list of commands to perform actions in the library:
+  **********************************************************************
+    ->  list songs
 
-Lists all the songs in the music library
-
-
-->  list artists
-
-Lists all the artists whose songs are in the music library
+    Lists all the songs in the music library
 
 
-->  list genres
+    ->  list artists
 
-Lists all the song genres available in the music library
-
-
-->  play song
-
-Lists all songs in the library and plays any selected song number
+    Lists all the artists whose songs are in the music library
 
 
-->  list artist
+    ->  list genres
 
-Lists all songs with corresponding genre of any selected artist
-
-
-->  list genre
-
-Lists all songs with corresponding artist in any selected genre
+    Lists all the song genres available in the music library
 
 
-->  help
+    ->  play song
 
-Presents this command/action menu at any time
+    Lists all songs in the library and plays any selected song number
 
 
-->  exit
+    ->  list artist
 
-Exits the music library
+    Lists all songs with corresponding genre of any selected artist
 
-**********************************************************************
 
-Type a command below to perform an action or exit:
+    ->  list genre
+
+    Lists all songs with corresponding artist in any selected genre
+
+
+    ->  help
+
+    Presents this command/action menu at any time
+
+
+    ->  exit
+
+    Exits the music library
+
+    **********************************************************************
+
+    Type a command below to perform an action or exit:
 
 
 ### Colour Scheme
