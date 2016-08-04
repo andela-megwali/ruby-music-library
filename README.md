@@ -60,10 +60,10 @@ You also need access to a steady internet connection.
    Follow the interactive prompts and will be well.
 
 
-  >>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
+      >>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
 
-  Below is a list of commands to perform actions in the library:
-  **********************************************************************
+      Below is a list of commands to perform actions in the library:
+      **********************************************************************
     ->  list songs
 
     Lists all the songs in the music library
