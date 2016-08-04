@@ -2,104 +2,113 @@
 
 ## Overview
 
-You're going to be implementing a Music Library domain composed of 3 main models, `Song`, `Artist`, and `Genre` that will relate to each other and collaborate heavily. Additionally, you're going to be extracting some common functionality of those models into a module, `Concerns::Findable` and mixing that module into those classes. You'll then build a collaborating object, `MusicImporter`, that can parse a directory of MP3 files and use the filenames to create instances of `Song`, `Artist`, and `Genre`. Finally, you'll build a CLI in `bin/musiclibrary` that is powered by a `MusicLibraryController` to provide a simple CLI that let's a user browse the library of MP3s imported by song, artist, and genre.
-
-This is a complex lab with many parts, go slow, try to understand what you're trying to build holistically before starting. Read this entire README before jumping in. As you go from spec to spec, we recommend doing them in numbered order.
-
-## Concerns
-
-A quick note on the placement of Modules. It's Ruby convention to put all Modules in a `concerns` folder and to be namespaced like this `Concerns::ModuleName`.
-
-## Instructions
-
-## `Song`, `Artist`, and `Genre` Basics
-
-The first thing to do is get the basics of the main models working. Each model has almost the exact same basic requirements, so once you make `001_song_basics_spec.rb` pass by building the `Song` class, the `Artist` and `Genre` basic specs will go fast.
-
-The requirements of each model is that they can accept a name upon initialization and set that property correctly. The `name` property should be readable and writeable by the object.
-
-```ruby
-Song.new("Blank Space").name #=> "Blank Space"`
-```
-
-Additionally, each class should contain a class variable `@@all` that is set to an empty array and is prepared to store all saved instances. This class variable should be accessible via the class method `.all`.
-
-```ruby
-Song.all #=> []
-```
-
-Instances should respond to a `#save` method that adds the instance itself into the class variable `@@all`.
-
-```ruby
-Song.new("Blank Space").save
-Song.all #=> [#<Song: @name="Blank Space">]
-```
-
-The class should be able to empty it's `@@all` array via a class method `.destroy_all`.
-
-```ruby
-Song.new("Blank Space").save
-Song.all #=> [#<Song: @name="Blank Space">]
-Song.destroy_all
-Song.all #=> []
-```
-
-Finally, all classes should implement a custom constructor `.create` that instantiates an instance using `.new` but also evokes `#save` on that instance, forcing it to persist immediately.
-
-```ruby
-Song.new("Blank Space")
-Song.all #=> []
-Song.create("Blank Space")
-Song.all #=> [#<Song: @name="Blank Space">]
-```
-
-## Relationships
-
-### Songs and Artists
-
- * Songs belong to an Artist and an Artist has many songs. Adding a song to an Artist is done by calling an `#add_song` method on an instance of the `Artist` class
- * Songs can be initialized with an optional `Artist` argument
-
-### Songs and Genres
-
-  * Genres have many songs and are initialized with an empty list of songs
-  * Songs have one genre
-  * Songs can be initialized with an optional genre
-
-### Artists and Genres
-
-  * `Artist`s have many `Genre`s through `Song`. Implement a `#genres` method for this association.
-  * `Genre`s have many `Artists`s through `Song`. Implement a `#artists` method for this association.
-
-## Finding
-
-### Song
-First implement the following two methods in your `Song` class
-
-  * Songs should have a `find_by_name` method.
-  * Songs should have a `find_or_create_by_name` method.
-
-Now that you've done that, let's generalize those methods by putting them into a module and then including that module in the `Genre` and `Artist` class.
-
-### Concerns::Findable
-
-  * Implement a generic `#find_by_name` method that uses the `.all` method defined by the class to find by name.
-  * Implement a generic `#find_or_create_by_name` method that uses the `.all` method defined by the class.
-  * Add this module to your `Genre` and `Artist` class.
+This is a command line music library application that parses a directory/folder of MP3 files and imports them to the music library. It uses the MP3 filenames to categorise them by `Song name`, `Artist`, and `Genre`. It also provides an interactive command line user interface to perform operations like browsing, listing or filtering songs by `Song name`, `Artist`, or `Genre`.
 
 
-## Music Importer
+## Functions and Features
 
-Create a Music Importer class to work with your `Song`, `Genre` and `Artist` objects to import a directory of mp3s. This class will have the following methods:
+The user is able to perform the following operations in the application:
 
-  * Initialize accepts a file path of mp3 files
-  * A `#files` method that will return all of the filenames
-  * Add a new method to the `Song` class called `.new_from_filename` that creates a `Song` based on a filename
-  * Add a new method to the `Song` class called `.create_from_filename` that creates a `Song` based on a filename and saves it to the `@@all` class variable
-  * In your `MusicImporter` class, add an `.import` method that imports all the files from the library and creates the `Song` objects.
+-> List all the songs in the music library
+-> Get full information about a song's name, artist and genre
+-> List all the artists whose songs are stored in the music library
+-> List all the song genres available in the music library
+-> Play any song selected by song number from the song catalog
+-> List all songs with corresponding genre belonging to any artist of interest
+-> Lists all songs with corresponding artist of any genre of interest
+-> Get a help menu at any time
+-> Follow colour-highlighted interactive instructions per input/command
 
-## CLI and Music Importer Controller
-Congrats! You've done the heavy lifting. Now let's wrap it all up in a CLI so that users can actually interact with our code.
 
-  * Initializes with an optional path to the music, but defaults to `./db/mp3s`. It creates a `MusicImporter` and imports the music.
-  * Add a `#call` method that starts the CLI and asks the user for input. Check out the tests for specifics
+## Instructions for Getting Started
+
+You will require a basic understanding of "Git" and the "Command Line Interface" to use this application. 
+You also need access to a steady internet connection.
+
+### Installation
+
+-> Clone the repo to a directory on your local machine using git clone command as shown below:
+
+    $  git clone https://github.com/andela-megwali/ruby-music-library.git
+
+-> Get into the ruby-music-library directory:
+
+    $  cd ruby-music-library
+    
+-> Install dependencies
+
+    $  bundle install
+
+### Using the Application
+
+-> To start the application, run bin/musiclibrary from ruby-music-library directory:
+    
+    $  cd ruby-music-library
+
+    $  bin/music_library
+
+-> The help menu is displayed at startup as shown below.
+   It shows you the relevant commands/actions you can perform in the application.
+   Follow the interactive prompts and will be well.
+
+
+>>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
+
+Below is a list of commands to perform actions in the library:
+**********************************************************************
+>>>  list songs
+Lists all the songs in the music library
+
+>>>  list artists
+Lists all the artists whose songs are in the music library
+
+>>>  list genres
+Lists all the song genres available in the music library
+
+>>>  play song
+Lists all songs in the library and plays any selected song number
+
+>>>  list artist
+Lists all songs with corresponding genre of any selected artist
+
+>>>  list genre
+Lists all songs with corresponding artist in any selected genre
+
+>>>  help
+Presents this command/action menu at any time
+
+>>>  exit'
+Exits the music library
+**********************************************************************
+Type a command below to perform an action or exit:
+
+
+### Colour Scheme
+
+-> Yellow: Prompts or guides you to do something. Please pay attention to this prompt.
+-> White: Mostly to give further description or provide feedback.
+-> Cyan/Blue: Presents a list of results matching your queries. It also highlights the commands you can perform in the application.
+-> Green: Displays welcome message, highlights when a song is being played or when a filter has been applied.
+-> Red: Highlights a user error, a possible exception that might require further action or exiting of the application. 
+
+
+### Developer Option: Running Test Mode
+
+To test the application based on the specifications, run 'bundle exec rspec' from the ruby-music-library directory after you have installed all the dependencies i.e. using 'bundle install' as previously described.
+
+    $  bundle exec rspec
+
+The application should pass all 70 test cases.
+
+
+### Limitations of the Application
+
+This is a simple and minialistic CLI music library which has its limitations. They include:
+
+-> The music library can only handle MP3 files i.e. files ending in ".mp3"
+-> Your mp3 files must be saved in ruby-music-library/db/mp3s directory (path) to be recognised by the application
+-> Your mp3 files MUST be named in the format "artist name" - "song name" - "genre"
+-> It effectively has a filter system but NOT a search function.
+-> You cannot play a song by typing the song name. Type its special (index) number instead.
+-> You can only filter artist/genre by name and not by number.
+-> If you think of any more, please let me know.
