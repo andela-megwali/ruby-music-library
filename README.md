@@ -93,11 +93,13 @@ You also need access to a steady internet connection.
 
     -> White: Mostly to give further description or provide feedback.
 
-    -> Cyan/Blue: Presents a list of results matching your queries. It also highlights the commands you can perform in the application.
+    -> Cyan/Blue: Presents a list of results matching your queries. It also highlights the commands you can 
+       perform in the application.
 
     -> Green: Displays welcome message, highlights when a song is being played or when a filter has been applied.
 
-    -> Red: Highlights a user error, a possible exception that might require further action or exiting of the application. 
+    -> Red: Highlights a user error, a possible exception that might require further action or exiting of 
+       the application. 
 
 
 ### Developer Option: Running Test Mode
