@@ -26,7 +26,7 @@ class MusicLibraryController
     end
   end
 
-  def commands 
+  def commands
   {"list songs" => :list_songs,
     "list artists" => :list_artists,
     "list genres" => :list_genres,

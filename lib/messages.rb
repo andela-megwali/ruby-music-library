@@ -1,24 +1,35 @@
 class Messages
   def self.welcome_message
-    puts "\n#{'>' * 22}  Welcome to The Mic music library  #{'<'*22}".
-          green
+    puts "\n#{'>' * 22}  Welcome to The Mic music library  #{'<'*22}".green
   end
 
   def self.library_action_menu
     puts "\nHere's a list of commands to perform actions in the library:".yellow
     puts "*" * 80
+    library_list_actions
+    library_filter_actions
+    library_other_actions
+  end
+
+  def self.library_list_actions
     puts ">>>  list songs".cyan
     puts "Lists all the songs in the music library \n\n"
     puts ">>>  list artists".cyan
     puts "Lists all the artists whose songs are in the music library \n\n"
     puts ">>>  list genres".cyan
     puts "Lists all the song genres available in the music library \n\n"
+  end
+
+  def self.library_filter_actions
     puts ">>>  play song".cyan
     puts "Lists all songs in the library and plays any selected song number\n\n"
     puts ">>>  list artist".cyan
     puts "Lists all songs with corresponding genre of any selected artist \n\n"
     puts ">>>  list genre".cyan
     puts "Lists all songs with corresponding artist in any selected genre \n\n"
+  end
+
+  def self.library_other_actions
     puts ">>>  help".cyan
     puts "Presents this command/action help menu at any time \n\n"
     puts ">>>  exit".cyan
@@ -37,7 +48,7 @@ class Messages
   end
 
   def self.invalid_selection
-     puts "Invalid selection! Please start again.".red
+    puts "Invalid selection! Please start again.".red
   end
 
   def self.wrong_input(user_input)
@@ -48,7 +59,7 @@ class Messages
   def self.list_songs_message(song, index)
     dotted_line
     puts "#{index}. #{song.artist.name} - #{song.name} - #{song.genre.name}".
-          cyan
+      cyan
   end
 
   def self.list_category_message(category, index)
@@ -59,7 +70,7 @@ class Messages
   def self.play_song_message(play)
     dotted_line
     puts "Playing #{play.artist.name} - #{play.name} - #{play.genre.name} \n".
-          green
+      green
     if play == Song.all[-1] 
       puts "Enjoy default song or choose a valid one \n".red
     end
