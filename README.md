@@ -9,30 +9,30 @@ This is a command line music library application that parses a directory/folder 
 
 The user is able to perform the following operations in the application:
 
-  -> List all the songs in the music library
+    -> List all the songs in the music library
 
-  -> Get full information about a song's name, artist and genre
+    -> Get full information about a song's name, artist and genre
 
-  -> List all the artists whose songs are stored in the music library
+    -> List all the artists whose songs are stored in the music library
 
-  -> List all the song genres available in the music library
+    -> List all the song genres available in the music library
 
-  -> Play any song selected by song number from the song catalog
+    -> Play any song selected by song number from the song catalog
 
-  -> List all songs with corresponding genre belonging to any artist of interest
+    -> List all songs with corresponding genre belonging to any artist of interest
 
-  -> Lists all songs with corresponding artist of any genre of interest
+    -> Lists all songs with corresponding artist of any genre of interest
 
-  -> Get a help menu at any time
+    -> Get a help menu at any time
 
-  -> Follow colour-highlighted interactive instructions per input/command
+    -> Follow colour-highlighted interactive instructions per input/command
 
 
 ## Instructions for Getting Started
 
 You will require a basic understanding of "Git" and the "Command Line Interface" to use this application.
 
-You also need access to a steady internet connection.
+You also need access to a steady internet connection for the initial installation.
 
 ### Installation
 
@@ -54,7 +54,7 @@ You also need access to a steady internet connection.
     
     $  cd ruby-music-library
 
-    $  bin/music_library
+    $  bin/musiclibrary
 
 -> The help menu is displayed at startup as shown below.
    It shows you the relevant commands/actions you can perform in the application.
@@ -91,7 +91,7 @@ You also need access to a steady internet connection.
 
     -> Yellow: Prompts or guides you to do something. Please pay attention to this prompt.
 
-    -> White: Mostly to give further description or provide feedback.
+    -> White: Mostly to give further description or display a feedback.
 
     -> Cyan/Blue: Presents a list of results matching your queries. It also highlights the commands you can 
        perform in the application.

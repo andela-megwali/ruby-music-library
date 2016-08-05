@@ -6,9 +6,9 @@ class MusicImporter
   end
 
   def files
-    @files = []
-    Dir.foreach(path) {|x| @files << x if x[0] != "."}
-    @files
+    files_stored = []
+    Dir.foreach(path) {|file| files_stored << file if file[0] != "."}
+    files_stored
   end
 
   def import

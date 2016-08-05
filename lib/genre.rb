@@ -1,7 +1,5 @@
-require_relative 'concerns/findable.rb'
-
 class Genre
-  extend Concerns::Findable
+  include Concerns
 
   attr_accessor :name, :artist, :genre, :songs
   @@all = []
@@ -12,30 +10,15 @@ class Genre
     @artist = []
   end
 
-  def self.all
-    @@all
-  end
-
-  def save
-    @@all << self
-    self
-  end
-
-  def self.destroy_all
-    @@all = []
-  end
-
-  def self.create(name)
-    self.new(name).save
-  end
-
   def add_song(song)
     song.genre ||= self.name
-    @songs << song if !(@songs.include? song)
+    @songs << song unless @songs.include? song
   end
 
   def artists
-    @songs.each {|x| @artist << x.artist if !(@artist.include? x.artist)}
+    @songs.each do |song|
+      @artist << song.artist unless @artist.include? song.artist
+    end
     @artist
   end
 end
