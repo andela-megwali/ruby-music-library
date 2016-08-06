@@ -39,7 +39,7 @@ class Messages
     puts "*" * 80
     puts ">>> Music library commands:".yellow
     puts <<-LIST_COMMANDS.cyan
-      list songs, list artists, list genres, play song, 
+      list songs, list artists, list genres, play song,
       list artist, list genre, help, exit
     LIST_COMMANDS
     puts "Type a new command below or type 'exit' to quit:".yellow

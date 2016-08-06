@@ -66,21 +66,32 @@ You also need access to a steady internet connection for the initial installatio
       Below is a list of commands to perform actions in the library:
       **********************************************************************
 
-    ->  list songs: Lists all the songs in the music library
+    Commands To Browse Full Lists Of Items In The Music Library
+      ->  list songs
+          Lists all the songs in the music library
 
-    ->  list artists: Lists all the artists whose songs are in the music library
+      ->  list artists
+          Lists all the artists whose songs are in the music library
 
-    ->  list genres: Lists all the song genres available in the music library
+      ->  list genres
+          Lists all the song genres available in the music library
 
-    ->  play song: Lists all songs in the library and plays any selected song number
+    Commands To Play A Selected Song Or Refine A Song List by Category
+      ->  play song
+          Lists all songs in the library and plays any selected song number
 
-    ->  list artist: Lists all songs with corresponding genre of any selected artist
+      ->  list artist
+          Displays all songs with corresponding genre of any selected artist
 
-    ->  list genre: Lists all songs with corresponding artist in any selected genre
+      ->  list genre
+          Displays all songs with corresponding artist in any selected genre
 
-    ->  help: Presents this command/action menu at any time
+    Commands To Get Help Or Quit the Application
+      ->  help
+          Presents this command/action help menu at any time
 
-    ->  exit: Exits the music library
+      ->  exit
+          Exits the music library
 
     **********************************************************************
 
