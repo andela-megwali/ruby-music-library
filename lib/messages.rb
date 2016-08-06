@@ -76,15 +76,8 @@ class Messages
     end
   end
 
-  def self.list_artist_message(chosen_artist)
-    chosen_artist.songs.each do |song|
-      dotted_line
-      puts "#{chosen_artist.name} - #{song.name} - #{song.genre.name} \n".green
-    end
-  end
-
-  def self.list_genre_message(chosen_genre)
-    chosen_genre.songs.each do |song|
+  def self.list_occurrence_message(chosen_category)
+    chosen_category.songs.each do |song|
       dotted_line
       puts "#{song.artist.name} - #{song.name} - #{song.genre.name} \n".green
     end

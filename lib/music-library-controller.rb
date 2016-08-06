@@ -67,30 +67,24 @@ class MusicLibraryController
   def list_artist
     list_artists
     puts "Type the name of any listed artist to list all their songs".yellow
-    list_artist_songs(user_input= gets.chomp.gsub(/[A-Za-z']+/,&:capitalize))
-  end
-
-  def list_artist_songs(user_input)
+    user_input= gets.chomp.gsub(/[A-Za-z']+/,&:capitalize)
     chosen_artist = Artist.all.detect {|artist| artist.name == user_input}
-    if chosen_artist == nil
-      feedback.invalid_selection
-    else
-      feedback.list_artist_message(chosen_artist)
-    end
+    validate_occurrence(chosen_artist)
   end
 
   def list_genre
     list_genres
     puts "Type the name of any listed genre to list songs in that genre".yellow
-    list_genre_songs(user_input = gets.chomp.downcase)
+    user_input = gets.chomp.downcase
+    chosen_genre = Genre.all.detect {|genre| genre.name == user_input}
+    validate_occurrence(chosen_genre)
   end
 
-  def list_genre_songs(user_input)
-    chosen_genre = Genre.all.detect {|genre| genre.name == user_input}
-    if chosen_genre == nil
+  def validate_occurrence(chosen_category)
+    if chosen_category == nil
       feedback.invalid_selection
     else
-      feedback.list_genre_message(chosen_genre)
+      feedback.list_occurrence_message(chosen_category)
     end
   end
 
