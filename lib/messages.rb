@@ -6,44 +6,42 @@ class Messages
   def self.library_action_menu
     puts "\nHere's a list of commands to perform actions in the library:".yellow
     puts "*" * 80
-    library_list_actions
-    library_filter_actions
-    library_other_actions
-  end
-
-  def self.library_list_actions
-    puts ">>>  list songs".cyan
-    puts "Lists all the songs in the music library \n\n"
-    puts ">>>  list artists".cyan
-    puts "Lists all the artists whose songs are in the music library \n\n"
-    puts ">>>  list genres".cyan
-    puts "Lists all the song genres available in the music library \n\n"
-  end
-
-  def self.library_filter_actions
-    puts ">>>  play song".cyan
-    puts "Lists all songs in the library and plays any selected song number\n\n"
-    puts ">>>  list artist".cyan
-    puts "Lists all songs with corresponding genre of any selected artist \n\n"
-    puts ">>>  list genre".cyan
-    puts "Lists all songs with corresponding artist in any selected genre \n\n"
-  end
-
-  def self.library_other_actions
-    puts ">>>  help".cyan
-    puts "Presents this command/action help menu at any time \n\n"
-    puts ">>>  exit".cyan
-    puts "Exits the music library"
+    puts "Commands To Browse Full Lists Of Items In The Music Library"
+    puts <<-LIST_ACTIONS.cyan
+      >>  list songs
+          Lists all the songs in the music library \n
+      >>  list artists
+          Lists all the artists whose songs are in the music library \n
+      >>  list genres
+          Lists all the song genres available in the music library
+    LIST_ACTIONS
+    puts "Commands To Play A Selected Song Or Refine A Song List by Category"
+    puts <<-FILTER_ACTIONS.cyan
+      >>  play song
+          Lists all songs in the library and plays any selected song number \n
+      >>  list artist
+          Displays all songs with corresponding genre of any selected artist \n
+      >>  list genre
+          Displays all songs with corresponding artist in any selected genre
+    FILTER_ACTIONS
+    puts "Commands To Get Help Or Quit the Application"
+    puts <<-OTHER_ACTIONS.cyan
+      >>  help
+          Presents this command/action help menu at any time \n
+      >>  exit
+          Exits the music library
+    OTHER_ACTIONS
     puts "*" * 80
     puts "Type a command below to perform an action or exit:".yellow
   end
 
   def self.new_command
     puts "*" * 80
-    puts ">>> Music library list commands:".yellow
-    puts "list songs, list artists, list genres, help".cyan
-    puts ">>> Music library selection commands:".yellow
-    puts "play song, list artist, list genre".cyan
+    puts ">>> Music library commands:".yellow
+    puts <<-LIST_COMMANDS.cyan
+      list songs, list artists, list genres, play song,
+      list artist, list genre, help, exit
+    LIST_COMMANDS
     puts "Type a new command below or type 'exit' to quit:".yellow
   end
 
