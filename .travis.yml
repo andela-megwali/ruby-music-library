@@ -1,0 +1,8 @@
+script: bundle exec rspec spec/spec_helper.rb
+language: ruby
+rvm:
+  - 2.1.2
+
+addons:
+    code_climate:
+        repo_token: 2a1dfa347f02862c568e433d3480c5e83c5f8420ff019486f56d7e86ad50487a
