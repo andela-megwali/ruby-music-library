@@ -3,7 +3,7 @@
 <a href="https://codeclimate.com/github/andela-megwali/ruby-music-library"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/gpa.svg" /></a>
 <a href="https://codeclimate.com/github/andela-megwali/ruby-music-library"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/issue_count.svg" /></a>
 <a href="https://codeclimate.com/github/andela-megwali/ruby-music-library/coverage"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/coverage.svg" /></a>
-
+<img src="https://travis-ci.org/andela-megwali/ruby-music-library.svg?branch=develop" />
 ## Overview
 
 This is a command line music library application that parses a directory/folder of MP3 files and imports them to the music library. It uses the MP3 filenames to categorise them by `Song name`, `Artist`, and `Genre`. It also provides an interactive command line user interface to perform operations like browsing, listing or filtering songs by `Song name`, `Artist`, or `Genre`.
