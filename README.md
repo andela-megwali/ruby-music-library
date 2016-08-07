@@ -40,29 +40,27 @@ You also need access to a steady internet connection for the initial installatio
 
 ### Installation
 
--> Clone the repo to a directory on your local machine using git clone command as shown below:
+ Clone the repo to a directory on your local machine using git clone command as shown below:
 
     $  git clone https://github.com/andela-megwali/ruby-music-library.git
 
--> Get into the ruby-music-library directory:
+ Get into the ruby-music-library directory:
 
     $  cd ruby-music-library
     
--> Install dependencies
+ Install dependencies
 
     $  bundle install
 
 ### Using the Application
 
--> To start the application, run bin/musiclibrary from ruby-music-library directory:
+ To start the application, run bin/musiclibrary from ruby-music-library directory:
     
     $  cd ruby-music-library
 
     $  bin/musiclibrary
 
--> The help menu is displayed at startup as shown below.
-   It shows you the relevant commands/actions you can perform in the application.
-   Follow the interactive prompts and will be well.
+ The help menu is displayed at startup as shown below. It shows you the relevant commands/actions you can perform in the application. Follow the interactive prompts and will be well.
 
 
       >>>>>>>>>>>>>  Welcome to The Mic music library  <<<<<<<<<<<<<<<
