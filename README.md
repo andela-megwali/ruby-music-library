@@ -2,6 +2,7 @@
 
 <a href="https://codeclimate.com/github/andela-megwali/ruby-music-library"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/gpa.svg" /></a>
 <a href="https://codeclimate.com/github/andela-megwali/ruby-music-library"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/issue_count.svg" /></a>
+<a href="https://codeclimate.com/github/andela-megwali/ruby-music-library/coverage"><img src="https://codeclimate.com/github/andela-megwali/ruby-music-library/badges/coverage.svg" /></a>
 [![Build Status](https://travis-ci.org/andela-megwali/ruby-music-library.svg?branch=develop)](https://travis-ci.org/andela-megwali/ruby-music-library)
 
 ## Overview
