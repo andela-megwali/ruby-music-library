@@ -11,8 +11,8 @@ class Genre
   end
 
   def add_song(song)
-    song.genre ||= self.name
-    @songs << song unless @songs.include? song
+    song.genre ||= self
+    add_song_action(song)
   end
 
   def artists
