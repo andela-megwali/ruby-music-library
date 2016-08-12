@@ -1,7 +1,7 @@
 class Song
   include Concerns
   
-  attr_accessor :name, :artist, :genre, :songs
+  attr_accessor :name, :artist, :genre
   @@all = []
 
   def initialize(name, artist = nil, genre = nil)

@@ -1,7 +1,7 @@
 class Artist
   include Concerns
 
-  attr_accessor :name, :artist, :genre, :songs
+  attr_accessor :name, :genre, :songs
   @@all = []
 
   def initialize(name)
@@ -12,7 +12,7 @@ class Artist
   
   def add_song(song)
     song.artist ||= self
-    @songs << song unless @songs.include? song
+    add_song_action(song)
   end
 
   def genres

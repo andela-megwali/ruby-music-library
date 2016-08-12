@@ -27,14 +27,15 @@ class MusicLibraryController
   end
 
   def commands
-  {"list songs" => :list_songs,
-    "list artists" => :list_artists,
-    "list genres" => :list_genres,
-    "play song" => :play_song,
-    "list artist" => :list_artist,
-    "list genre" => :list_genre,
-    "help" => :help,
-  }
+    {
+      "list songs" => :list_songs,
+      "list artists" => :list_artists,
+      "list genres" => :list_genres,
+      "play song" => :play_song,
+      "list artist" => :list_artist,
+      "list genre" => :list_genre,
+      "help" => :help,
+    }
   end
 
   def list_songs
@@ -57,7 +58,7 @@ class MusicLibraryController
 
   def play_song
     list_songs
-    puts "Type a song number to play the related song:".yellow
+    feedback.choose_song_message
     user_input = gets.chomp.to_i
     user_input = 0 if user_input >= Song.all.length
     play = Song.all[user_input-1]
@@ -66,7 +67,7 @@ class MusicLibraryController
 
   def list_artist
     list_artists
-    puts "Type the name of any listed artist to list all their songs".yellow
+    feedback.choose_artist_message
     user_input= gets.chomp.gsub(/[A-Za-z']+/,&:capitalize)
     chosen_artist = Artist.all.detect {|artist| artist.name == user_input}
     validate_occurrence(chosen_artist)
@@ -74,7 +75,7 @@ class MusicLibraryController
 
   def list_genre
     list_genres
-    puts "Type the name of any listed genre to list songs in that genre".yellow
+    feedback.choose_genre_message
     user_input = gets.chomp.downcase
     chosen_genre = Genre.all.detect {|genre| genre.name == user_input}
     validate_occurrence(chosen_genre)
