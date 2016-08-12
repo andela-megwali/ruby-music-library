@@ -65,6 +65,10 @@ class Messages
     puts "#{index}. #{category.name}".cyan
   end
 
+  def self.choose_song_message
+    puts "Type a song number to play the related song:".yellow
+  end
+
   def self.play_song_message(play)
     dotted_line
     puts "Playing #{play.artist.name} - #{play.name} - #{play.genre.name} \n".
@@ -72,6 +76,14 @@ class Messages
     if play == Song.all[-1] 
       puts "Enjoy default song or choose a valid one \n".red
     end
+  end
+
+  def self.choose_artist_message
+    puts "Type the name of any listed artist to list all their songs".yellow
+  end
+
+  def self.choose_genre_message
+    puts "Type the name of any listed genre to list songs in that genre".yellow
   end
 
   def self.list_occurrence_message(chosen_category)
